@@ -7,20 +7,20 @@
 **/
 int check_cycle(listint_t *list)
 {
-	int i = 0;
-	listint_t *tmp;
+	listint_t *one, *two;
 
 	if (list == NULL)
 		return (0);
-	tmp = list;
+	one = list;
+	two = list;
 
-	while (tmp->next != NULL && i <= 100)
+	while (one->next != NULL && two->next->next != NULL)
 	{
-		tmp = tmp->next;
-		i++;
-	}
+		one = one->next;
+		two = two->next->next;
 
-	if (i >= 100)
-		return (1);
+		if (one == two)
+			return (1);
+	}
 return (0);
 }
