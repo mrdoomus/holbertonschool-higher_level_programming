@@ -1,3 +1,2 @@
 #!/usr/bin/python3
-string = "abcdefghijklmnopqrstuvwxyz"
-print(string.upper())
+__import__("103-alphabet")
