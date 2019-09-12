@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-__import__("103-alphabet")
+import string
+print(string.ascii_uppercase)

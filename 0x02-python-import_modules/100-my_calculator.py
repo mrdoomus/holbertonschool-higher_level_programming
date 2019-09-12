@@ -9,15 +9,15 @@ if __name__ == '__main__':
         op = sys.argv[2]
         a = int(sys.argv[1])
         b = int(sys.argv[3])
-        if op != '+' and op != '-' and op != '/' and op != '*':
+        if op != "+" and op != "-" and op != "/" and op != "*":
             print("Unknown operator. Available operators: +, -, * and /")
             sys.exit(1)
         else:
-            if op == '+':
+            if op == "+":
                 print("{0:d} + {1:d} = {2:d}".format(a, b, add(a, b)))
-            if op == '-':
+            if op == "-":
                 print("{0:d} - {1:d} = {2:d}".format(a, b, sub(a, b)))
-            if op == '*':
+            if op == "*":
                 print("{0:d} * {1:d} = {2:d}".format(a, b, mul(a, b)))
-            if op == '/':
+            if op == "/":
                 print("{0:d} / {1:d} = {2:d}".format(a, b, div(a, b)))
