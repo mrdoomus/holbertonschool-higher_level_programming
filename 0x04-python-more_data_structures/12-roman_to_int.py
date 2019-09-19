@@ -9,11 +9,11 @@ def roman_to_int(roman_string):
 
     if len(roman_string) == 1:
         return roman_dic[roman_string]
- 
+
     for i in range(len(roman_string) - 1):
         if roman_dic[roman_string[i]] < roman_dic[roman_string[i + 1]]:
             roman_dic[roman_string[i]] = -(roman_dic[roman_string[i]])
-        
+
     for j in roman_string:
         value += roman_dic[j]
     return value
