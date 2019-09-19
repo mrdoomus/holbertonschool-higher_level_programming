@@ -8,7 +8,7 @@ def roman_to_int(roman_string):
     roman_dic = {'I': 1, 'V': 5, 'X': 10, 'L': 50,
                  'C': 100, 'D': 500, 'M': 1000}
 
-    if rev[0] != 'I':
+    if rev[0] is not 'I':
         roman_dic['I'] = -1
         for i in roman_string:
             value += roman_dic[i]
