@@ -1,46 +1,54 @@
-The ``0-add_integer`` module
+The ``4-print_square`` module
 ======================
 
-Using ``add_integer``
+Using ``4-print_square``
 -------------------
 
 This is an example text file in reStructuredText format.  First import
-``add_integer`` from the ``0-add_integer`` module:
+``print_square`` from the ``4-print_square`` module:
 
-    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> print_square = __import__('4-print_square').print_square
 
 Now use it:
 
-    #0 - Two pos ints
-    >>> add_integer(1, 2)
-    3
+    #0 - Common case
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
 
-    #1 - pos & neg ints
-    >>> add_integer(100, -2)
-    98
+    #1 - Size is not an int (string)
+    >>> print_square("Hola")
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
 
-    #2 - One pos int
-    >>> add_integer(2)
-    100
+    #2 - Size is not an int (float)
+    >>> print_square(2.5)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
 
-    #3 - pos float & neg int
-    >>> add_integer(100.3, -2)
-    98
+    #3 - Size is less than 0
+    >>> print_square(-2)
+    Traceback (most recent call last):
+        ...
+    ValueError: size must be >= 0
 
-    #4 - pos int & string
-    >>> add_integer(4, "School")
-    b must be an integer
+    #4 - Size is a float and is less than 0
+    >>> print_square(-2.5)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
 
-    #5 - None
-    >>> add_integer(None)
-    a must be an integer
+    #5 - Size is 0
+    >>> print_square(0)
 
-    #6 - INT_MAX
-    >>> add_integer(9999999999, 1)
-    
-    #7 - Empty
-    >>> add_integer()
 
-    #8 - int and None
-    >>> add_integer(5, None)
+    #6 - Empty func
+    >>> print_square()
+    Traceback (most recent call last):
+        ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
     

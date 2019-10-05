@@ -27,20 +27,35 @@ Now use it:
     >>> add_integer(100.3, -2)
     98
 
-    #4 - pos int & string
+    #5 - Two neg ints
+    >>> add_integer(-3, -3)
+    -6
+
+    #6 - Returns an int
+    >>> type(add_integer(2.5, 2.5))
+    <class 'int'>
+
+    #7 - pos int & string
     >>> add_integer(4, "School")
-    b must be an integer
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
 
-    #5 - None
-    >>> add_integer(None)
-    a must be an integer
-
-    #6 - INT_MAX
-    >>> add_integer(9999999999, 1)
-    
-    #7 - Empty
+    #8 - None
     >>> add_integer()
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
 
-    #8 - int and None
-    >>> add_integer(5, None)
+    #9 - int and None
+    >>> add_integer(5, 6, 7)
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+    #10 - Overflow
+    >>> add_integer(float('inf'), 2)
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
     

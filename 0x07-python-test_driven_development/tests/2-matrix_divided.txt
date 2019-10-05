@@ -1,46 +1,96 @@
-The ``0-add_integer`` module
+The ``2-matrix_divided`` module
 ======================
 
-Using ``add_integer``
+Using ``matrix_divided``
 -------------------
 
 This is an example text file in reStructuredText format.  First import
-``add_integer`` from the ``0-add_integer`` module:
+``matrix_divided`` from the ``2-matrix_divided`` module:
 
-    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
 Now use it:
 
-    #0 - Two pos ints
-    >>> add_integer(1, 2)
-    3
+    #0 - Matrix it's a tuple
+    >>> matrix_divided(([3, 6, 9], [12, 15, 18]), 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-    #1 - pos & neg ints
-    >>> add_integer(100, -2)
-    98
-
-    #2 - One pos int
-    >>> add_integer(2)
-    100
-
-    #3 - pos float & neg int
-    >>> add_integer(100.3, -2)
-    98
-
-    #4 - pos int & string
-    >>> add_integer(4, "School")
-    b must be an integer
-
-    #5 - None
-    >>> add_integer(None)
-    a must be an integer
-
-    #6 - INT_MAX
-    >>> add_integer(9999999999, 1)
+    #1 - Matrix it's a list and it has a tuple
+    >>> matrix_divided([(3, 6, 9), [12, 15, 18]], 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
     
-    #7 - Empty
-    >>> add_integer()
+    #2 - Matrix is empty
+    >>> matrix_divided([[]], 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-    #8 - int and None
-    >>> add_integer(5, None)
+    #3 - Matrix has lists of different sizes
+    >>> matrix_divided([[3, 6, 9], [12, 15]], 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: Each row of the matrix must have the same size
+
+    #4 - Div is not an int or a float
+    >>> matrix_divided([[3, 6, 9], [12, 15, 18]], "School")
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+
+    #5 - Div is zero
+    >>> matrix_divided([[3, 6, 9], [12, 15, 18]], 0)
+    Traceback (most recent call last):
+        ...
+    ZeroDivisionError: division by zero
+
+    #6 - Elements in the list are empty
+    >>> matrix_divided([[], []], 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    #7 - Function is empty
+    >>> matrix_divided()
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+    #8 - Function with just one argument
+    >>> matrix_divided([[3, 6, 9], [12, 15, 18]])
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+    #9 - Matrix is just a list
+    >>> matrix_divided([1, 2, 3], 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    #10 Normal case
+    >>> matrix_divided([[3, 6, 9], [12, 15, 18]], 3)
+    [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]]
     
+    #11 Div is a neg int
+    >>> matrix_divided([[3, 6, 9], [12, 15, 18]], -3)
+    [[-1.0, -2.0, -3.0], [-4.0, -5.0, -6.0]]
+
+    #12 Div is a neg int
+    >>> matrix_divided([[3, 6, 9], [12, 15, 18]], -2.7)
+    [[-1.11, -2.22, -3.33], [-4.44, -5.56, -6.67]]
+
+    #12 3 arguments
+    >>> matrix_divided([[3, 6, 9], [12, 15, 18]], 3, 4)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix_divided() takes 2 positional arguments but 3 were given
+
+    #11 Matrix has a type value differnet than int and float
+    >>> matrix_divided([[3, 6, "hola"], [12, 15, 18]], 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
