@@ -6,6 +6,7 @@ class Rectangle:
     @__height - Height of a rectangle
     __init__ - Initializes attributes
     __str__ - Defines behavior for when str() and print()
+    __repr__ - return a string representation of the rectangle
     Area - Returns a rectangle's area
     Perimeter - Returns a rectangle's perimeter
     """
@@ -50,6 +51,10 @@ class Rectangle:
             square += '\n'
         square = square[:-1]
         return square
+
+    def __repr__(self):
+        class_representation = "{}({:d}, {:d})".format(self.__class__.__name__, self.__width, self.__height)
+        return class_representation
 
     def area(self):
         return self.__width * self.__height
