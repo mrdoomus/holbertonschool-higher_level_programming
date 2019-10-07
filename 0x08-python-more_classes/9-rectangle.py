@@ -12,6 +12,8 @@ class Rectangle:
     __del__: Print the message Bye rectangle
     Area - Returns a rectangle's area
     Perimeter - Returns a rectangle's perimeter
+    Bigger_or_equal - Returns the biggest rectangle based on the area
+    square - Returns a new Rectangle instance with width == height == size
     """
 
     number_of_instances = 0
@@ -42,6 +44,17 @@ class Rectangle:
             raise ValueError('height must be >= 0')
         else:
             self.__height = value
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError('rect_1 must be an instance of Rectangle')
+        elif not isinstance(rect_2, Rectangle):
+            raise TypeError('rect_1 must be an instance of Rectangle')
+        elif rect_1.area() >= rect_2.area():
+            return rect_1
+        else:
+            return rect_2
 
     def __init__(self, width=0, height=0):
         Rectangle.number_of_instances += 1
@@ -77,3 +90,7 @@ class Rectangle:
             return 0
         else:
             return (self.__width * 2) + (self.__height * 2)
+
+    @classmethod
+    def square(cls, size=0):
+        return cls(size, size)

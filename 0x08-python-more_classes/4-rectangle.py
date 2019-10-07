@@ -16,7 +16,7 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError('width must be an integer')
         elif value < 0:
             raise ValueError('width must be >= 0')
@@ -29,13 +29,13 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError('height must be an integer')
         elif value < 0:
             raise ValueError('height must be >= 0')
         else:
             self.__height = value
-            
+
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
@@ -44,7 +44,7 @@ class Rectangle:
         square = ""
         if self.__width == 0 or self.__height == 0:
             return square
-        
+
         for height in range(self.__height):
             for width in range(self.__width):
                 square += "#"
@@ -53,7 +53,8 @@ class Rectangle:
         return square
 
     def __repr__(self):
-        class_representation = "{}({:d}, {:d})".format(self.__class__.__name__, self.__width, self.__height)
+        class_representation = "{}({:d}, {:d})".format(
+            self.__class__.__name__, self.__width, self.__height)
         return class_representation
 
     def area(self):
