@@ -5,6 +5,7 @@ class Rectangle:
     @__width - Width of a rectangle
     @__height - Height of a rectangle
     __init__ - Initializes attributes
+    __str__ - Defines behavior for when str() and print()
     Area - Returns a rectangle's area
     Perimeter - Returns a rectangle's perimeter
     """
@@ -37,6 +38,15 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         self.__width = width
         self.__height = height
+
+    def __str__(self):
+        square = ""
+        for height in range(self.__height):
+            for width in range(self.__width):
+                square += "#"
+            square += '\n'
+        square = square[:-1]
+        return square
 
     def area(self):
         return self.__width * self.__height

@@ -2,6 +2,9 @@
 class Rectangle:
     """
     Rectangle - class
+    __init__ - Initializes attributes
+    @__width - Width of a rectangle
+    @__height - Height of a rectangle
     """
     @property
     def width(self):
