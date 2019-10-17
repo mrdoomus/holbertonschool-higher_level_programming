@@ -28,5 +28,5 @@ class Student:
         """
         if len(json) != 0:
             self.first_name = json["first_name"]
-            self.second_name = json["last_name"]
+            self.last_name = json["last_name"]
             self.age = json["age"]

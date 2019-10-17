@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from json import loads
+import json
 
 
 def from_json_string(my_str):
