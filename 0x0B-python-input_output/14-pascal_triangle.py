@@ -16,7 +16,8 @@ def pascal_triangle(n):
     for row in range(2, n):
         pensee = [1]
         for column in range(1, row):
-            number = pascal_list[row - 1][column - 1] + pascal_list[row - 1][column]
+            number = pascal_list[row - 1][column - 1] +
+            pascal_list[row - 1][column]
             pensee.append(number)
         pensee.append(1)
         pascal_list.append(pensee)
