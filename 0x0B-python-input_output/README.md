@@ -1,24 +1,39 @@
-## 0x0A. Python - Inheritance
+## 0x0B. Python - Input/Output
 
 ### Description
- refers to defining a new class with little or no modification to an existing class. The new class is called derived (or child) class and the one from which it inherits is called the base (or parent) class.
+This projects contains:
+How to open a file
+How to write text in a file
+How to read the full content of a file
+How to read a file line by line
+How to move the cursor in a file
+How to make sure a file is closed after using it
+What is and how to use the with statement
+What is JSON
+What is serialization
+What is deserialization
+How to convert a Python data structure to a JSON string
+How to convert a JSON string to a Python data structure
 
 ### Files
 
 | File | Description |
 | ------ | ------ |
-| [0-lookup.py]() | function that returns the list of available attributes and methods of an object. |
-| [1-my_list.py]() | prints the list, but sorted (ascending sort) |
-| [2-is_same_class.py]() |  function that returns True if the object is exactly an instance of the specified class. |
-| [3-is_kind_of_class.py]() | function that returns True if the object is an instance of, or if the object is an instance of a class that inherited from, the specified class.|
-| [4-inherits_from.py]() | function that returns True if the object is an instance of a class that inherited (directly or indirectly) from the specified class ; otherwise False. |
-| [5-base_geometry.py]() | Creates empty class BaseGeometry. |
-| [6-base_geometry.py]() | Defines area calculation, not actual implementation. |
-| [7-base_geometry.py]() | Handles frequent Exceptions. |
-| [8-rectangle.py]() | Sets initial Rectangle values and exceptions |
-| [9-rectangle.py]() |  Prints rectangle area and values used to calculate it. |
-| [10-square.py]() | Prints square area.|
-| [11-square.py]() | Prints square area and values used to calculate it. |
+| [0-read_file.py]() | reads a text file (UTF8) and prints it to stdout |
+| [1-number_of_lines.py]() | returns the number of lines of a text file |
+| [2-read_lines.py]() | reads n lines of a text file (UTF8) and prints it to stdout |
+| [3-write_file.py]() | writes a string to a text file (UTF8) and returns the number of characters written|
+| [4-append_write.py]() | appends a string at the end of a text file (UTF8) and returns the number of characters added |
+| [5-to_json_string.py]() | returns the JSON representation of an object (string) |
+| [6-from_json_string.py]() |  returns an object (Python data structure) represented by a JSON string |
+| [7-save_to_json_file.py]() | writes an Object to a text file, using a JSON representation |
+| [8-load_from_json_file.py]() | creates an Object from a “JSON file” |
+| [9-add_item.py]() |  adds all arguments to a Python list, and then save them to a file |
+| [10-class_to_json.py]() | eturns the dictionary description with simple data structure (list, dictionary, string, integer and boolean) for JSON serialization of an object |
+| [11-student.py]() | retrieves a dictionary representation of a Student instance (same as 10-class_to_json.py) |
+| [12-student.py]() |  retrieves a dictionary representation of a Student instance (same as 11-class_to_json.py) |
+| [13-student.py]() | retrieves a dictionary representation of a Student instance (same as 12-class_to_json.py)|
+| [14-pascal_triangle.py]() | returns a list of lists of integers representing the Pascal’s triangle of n |
 
 
 ## Author
