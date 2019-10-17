@@ -12,10 +12,4 @@ def read_lines(filename="", nb_lines=0):
             nb_lines = tot_lines
 
         for line in range(nb_lines):
-            if nb_lines < tot_lines:
-                print(f.readline(), end='')
-            elif nb_lines >= tot_lines:
-                if line == nb_lines - 1:
-                    print(f.readline())
-                else:
-                    print(f.readline(), end='')
+            print(f.readline(), end='')
