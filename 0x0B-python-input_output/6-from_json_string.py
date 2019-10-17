@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-import json
+from json import loads
+
 
 def from_json_string(my_str):
     """

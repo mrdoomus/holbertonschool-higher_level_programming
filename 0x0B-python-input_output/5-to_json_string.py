@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-import json
+from json import dumps
+
 
 def to_json_string(my_obj):
     """
