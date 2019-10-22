@@ -29,7 +29,6 @@ class Base:
         """ Writes a json string to a json file """
         new_list = []
         new_file = cls.__name__ + '.json'
-        print(new_file)
         if list_objs:
             new_list = [data.to_dictionary() for data in list_objs]
         with open(new_file, 'w', encoding='utf-8') as f:
