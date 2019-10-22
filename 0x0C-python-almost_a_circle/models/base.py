@@ -53,15 +53,18 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """ Loads a file of instances """
+        """ Loads a file of dicts to create a list of instances"""
         file_name = cls.__name__ + '.json'
-        with open(file_name, 'r', encoding='utf-8') as f:
-            new_list = []
-            file_dict = f.read()
-            if file_dict is None or len(file_dict) == 0:
-                return []
-            file_data = cls.from_json_string(file_dict)
-            for dictionary in file_data:
-                instance = cls.create(**dictionary)
-                new_list.append(instance)
-            return new_list
+        try:
+            with open(file_name, 'r', encoding='utf-8') as f:
+                new_list = []
+                file_dict = f.read()
+                if file_dict is None or len(file_dict) == 0:
+                    return []
+                file_data = cls.from_json_string(file_dict)
+                for dictionary in file_data:
+                    instance = cls.create(**dictionary)
+                    new_list.append(instance)
+                return new_list
+        except Exception:
+            return []
