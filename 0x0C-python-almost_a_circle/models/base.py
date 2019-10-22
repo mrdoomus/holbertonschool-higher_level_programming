@@ -22,7 +22,7 @@ class Base:
         """ Returns json string of a dictionary """
         if list_dictionaries:
             return dumps(list_dictionaries)
-        return []
+        return '"[]"'
 
     @classmethod
     def save_to_file(cls, list_objs):
