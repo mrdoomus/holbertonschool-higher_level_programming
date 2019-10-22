@@ -6,7 +6,6 @@ from json import dumps, loads
 class Base:
     """
     Base class for classes.
-    :__nb_objects: Number of class instances
     """
     __nb_objects = 0
 
