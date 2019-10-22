@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+""" Module of Base """
 from json import dumps, loads
 
 
@@ -42,7 +42,3 @@ class Base:
         if json_string:
             return loads(json_string)
         return []
-
-    """@classmethod
-    def create(cls, **dictionary):
-        """
