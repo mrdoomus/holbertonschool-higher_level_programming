@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Module of Base """
 from json import dumps, loads
+import csv  
 
 
 class Base:
@@ -68,3 +69,22 @@ class Base:
                 return new_list
         except Exception:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ Writes a json string to a csv file """
+        file_name = cls.__name__ + '.csv'
+        if list_objs:
+            for data in list_objs:
+                new_dict = data.to_dictionary()
+            print(type(new_dict))
+            print(new_dict)
+            #new_string = str(new_dict[id]) + ','#+ new_dict[width] + ',' + new_dict[height] + ',' + new_dict[x] + ',' + new_dict[y]
+            print(new_dict)
+            #1print(new_string)
+        #with open(file_name, 'w', encoding='utf-8') as f:
+        #    f.Writes(Base.to_json_string(new_list))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        pass
