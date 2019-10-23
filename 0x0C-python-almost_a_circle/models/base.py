@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ Module of Base """
 from json import dumps, loads
-import csv  
+import csv
 
 
 class Base:
@@ -72,19 +72,28 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """ Writes a json string to a csv file """
+        """ Writes a json string to a json file """
+        new_list = []
         file_name = cls.__name__ + '.csv'
         if list_objs:
-            for data in list_objs:
-                new_dict = data.to_dictionary()
-            print(type(new_dict))
-            print(new_dict)
-            #new_string = str(new_dict[id]) + ','#+ new_dict[width] + ',' + new_dict[height] + ',' + new_dict[x] + ',' + new_dict[y]
-            print(new_dict)
-            #1print(new_string)
-        #with open(file_name, 'w', encoding='utf-8') as f:
-        #    f.Writes(Base.to_json_string(new_list))
+            new_list = [data.to_dictionary() for data in list_objs]
+        with open(file_name, 'w', encoding='utf-8') as f:
+            f.write(Base.to_json_string(new_list))
 
     @classmethod
     def load_from_file_csv(cls):
-        pass
+        """ Loads a file of dicts to create a list of instances"""
+        file_name = cls.__name__ + '.csv'
+        try:
+            with open(file_name, 'r', encoding='utf-8') as f:
+                new_list = []
+                file_dict = f.read()
+                if file_dict is None or len(file_dict) == 0:
+                    return []
+                file_data = cls.from_json_string(file_dict)
+                for dictionary in file_data:
+                    instance = cls.create(**dictionary)
+                    new_list.append(instance)
+                return new_list
+        except Exception:
+            return []
