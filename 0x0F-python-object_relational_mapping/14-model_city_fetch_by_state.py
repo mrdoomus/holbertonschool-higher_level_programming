@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from model_state import Base, State
+from model_city import City
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 from sys import argv
@@ -13,6 +14,8 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
 
     session = Session(engine)
-    for state in session.query(State).order_by(State.id).all():
-        print("{}: {}".format(state.id, state.name))
+    for city, state in session.query(City, State)\
+            .filter(City.state_id == State.id)\
+            .order_by(City.id).all():
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
     session.close()
