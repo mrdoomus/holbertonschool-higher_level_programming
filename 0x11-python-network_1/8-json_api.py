@@ -9,10 +9,8 @@ if __name__ == '__main__':
     q = ''
     if len(argv) == 2:
         q = argv[1]
-
-    if len(argv) == 2:
         req = post(
-            'http://f944a8f69e43.19.hbtn-cod.io:5000/search_user', {'q': q})
+            'http://0.0.0.0:5000/search_user', {'q': q})
         try:
             data = req.json()
             if data:
