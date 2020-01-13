@@ -10,7 +10,6 @@ if __name__ == '__main__':
     req = Request(argv[1])
     try:
         response = urlopen(req)
+        print(response.read().decode('utf-8'))
     except HTTPError as e:
         print('Error code: ', e.code)
-    else:
-        print(response.read().decode('utf-8'))
