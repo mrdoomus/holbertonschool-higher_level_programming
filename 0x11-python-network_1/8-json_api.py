@@ -19,8 +19,5 @@ if __name__ == '__main__':
                 print("No result")
         except TypeError:
             print("Not a valid JSON")
-    elif len(argv) == 1:
-        req = post(
-            'http://f944a8f69e43.19.hbtn-cod.io:5000/search_user', {'q': q})
     else:
         print("No result")
