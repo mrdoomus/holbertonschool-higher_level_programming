@@ -6,11 +6,8 @@ from sys import argv
 
 
 if __name__ == '__main__':
-    q = ''
-    if (len(argv) == 2):
-        q = argv[1]
-
     if len(argv) == 2:
+        q = argv[1]
         req = post(
             'http://0.0.0.0:5000/search_user', {'q': q})
         try:
@@ -19,7 +16,7 @@ if __name__ == '__main__':
                 print("[{}] {}".format(data.get('id'), data.get('name')))
             else:
                 print("No result")
-        except TypeError:
+        except Exception:
             print("Not a valid JSON")
     else:
         print("No result")
