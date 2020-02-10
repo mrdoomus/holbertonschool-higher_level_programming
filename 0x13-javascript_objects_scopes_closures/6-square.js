@@ -9,7 +9,6 @@ var square = class Square extends Square1 {
       } else {
         console.log('X'.repeat(this.width));
       }
-      console.log(c.repeat(this.width));
     }
   }
 };
